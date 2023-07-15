@@ -1,4 +1,4 @@
-package com.cursodevsuperior.dslist;
+package com.cursodevsuperior.dslist.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,7 +13,7 @@ public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    public Long id;
     public String title;
     @Column(name = "game_year")
     public String year;
@@ -21,13 +21,15 @@ public class Game {
     public String platforms;
     public String score;
     public String imgUrl;
+    @Column(columnDefinition = "TEXT")
     public String shortDescription;
+    @Column(columnDefinition = "TEXT")
     public String longDescription;
 
     public Game() {
     }
 
-    public Game(Integer id, String title, String year, String genre, String platforms, String score, String imgUrl,
+    public Game(Long id, String title, String year, String genre, String platforms, String score, String imgUrl,
             String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
@@ -40,11 +42,11 @@ public class Game {
         this.longDescription = longDescription;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
